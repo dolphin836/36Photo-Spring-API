@@ -1,11 +1,13 @@
 package com.dolphin.photo.Controller;
 
 import com.dolphin.photo.Entity.Photo;
-import com.dolphin.photo.Repository.PhotoRepository;
 import com.dolphin.photo.Request.PhotoIdRequest;
 import com.dolphin.photo.Response.PhotoResponse;
+import com.dolphin.photo.Response.Response;
+import com.dolphin.photo.Service.PhotoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,20 +15,19 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public class PhotoController {
-    // private static final String template = "Hello, %s!";
     @Autowired
-    private PhotoRepository photoRepository;
+    private PhotoService photoService;
 
     @PostMapping("photo")
-    public PhotoResponse getPhoto (@RequestBody PhotoIdRequest request) {
+    public Response<PhotoResponse> getPhoto (@RequestBody @Validated PhotoIdRequest request) {
         Long photoId = request.getPhotoId();
 
-        Photo photo  = photoRepository.getPhotoById(photoId);
+        Photo photo  = photoService.getPhoto(photoId);
 
         PhotoResponse photoResponse = new PhotoResponse();
 
         BeanUtils.copyProperties(photo, photoResponse);
 
-        return photoResponse;
+        return Response.success(photoResponse);
     }
 }
