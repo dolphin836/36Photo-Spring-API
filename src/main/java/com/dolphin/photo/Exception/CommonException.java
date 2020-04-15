@@ -13,7 +13,7 @@ public interface CommonException {
      */
     String COMMON_CODE = "10";
 
-    enum ExceptionCode implements com.dolphin.photo.Exception.ExceptionCode {
+    enum ExceptionCode implements ExceptionCodeDefine {
         /**
          * 记录不存在
          */

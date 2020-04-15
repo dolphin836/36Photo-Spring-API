@@ -23,7 +23,7 @@ public class BusinessException extends RuntimeException {
      */
     private static final String APP_EXCEPTION_CODE = "10";
 
-    public BusinessException (ExceptionCode exception) {
+    public BusinessException (ExceptionCodeDefine exception) {
         super(exception.getMessage());
 
         this.code    = APP_EXCEPTION_CODE + exception.getCode();

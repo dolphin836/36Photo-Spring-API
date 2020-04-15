@@ -19,8 +19,8 @@ public class PhotoController {
     private PhotoService photoService;
 
     @PostMapping("photo")
-    public Response<PhotoResponse> getPhoto (@RequestBody @Validated PhotoIdRequest request) {
-        Long photoId = request.getPhotoId();
+    public Response<PhotoResponse> getPhoto (@RequestBody @Validated PhotoIdRequest photoIdRequest) {
+        Long photoId = photoIdRequest.getPhotoId();
 
         Photo photo  = photoService.getPhoto(photoId);
 

@@ -3,7 +3,7 @@ package com.dolphin.photo.Exception;
 /**
  * @author whb
  */
-public interface ExceptionCode {
+public interface ExceptionCodeDefine {
     /**
      * 获取状态码
      * @return code
