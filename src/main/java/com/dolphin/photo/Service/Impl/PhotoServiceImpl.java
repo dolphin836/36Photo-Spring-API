@@ -1,7 +1,7 @@
 package com.dolphin.photo.Service.Impl;
 
 import com.dolphin.photo.Entity.Photo;
-import com.dolphin.photo.Exception.BusinessException;
+import com.dolphin.photo.Exception.Common.BusinessException;
 import com.dolphin.photo.Exception.PhotoException;
 import com.dolphin.photo.Repository.PhotoRepository;
 import com.dolphin.photo.Service.PhotoService;

@@ -1,4 +1,4 @@
-package com.dolphin.photo.Exception;
+package com.dolphin.photo.Exception.Common;
 
 /**
  * @author whb

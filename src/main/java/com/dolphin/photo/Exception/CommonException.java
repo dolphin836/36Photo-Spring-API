@@ -1,5 +1,6 @@
 package com.dolphin.photo.Exception;
 
+import com.dolphin.photo.Exception.Common.ExceptionCodeDefine;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,4 +1,4 @@
-package com.dolphin.photo.Exception;
+package com.dolphin.photo.Exception.Common;
 
 import com.dolphin.photo.Response.Response;
 import org.springframework.web.bind.MethodArgumentNotValidException;

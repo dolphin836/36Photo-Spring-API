@@ -1,6 +1,6 @@
 package com.dolphin.photo.Response;
 
-import com.dolphin.photo.Exception.BusinessException;
+import com.dolphin.photo.Exception.Common.BusinessException;
 import lombok.Data;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
