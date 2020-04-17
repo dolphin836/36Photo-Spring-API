@@ -71,7 +71,7 @@ public class PhotoServiceImpl implements PhotoService {
         // 每页的数量
         Integer count = photoListRequest.getCount();
         // 查询记录
-        Page<Photo> photoList = photoRepository.findByIsPublicAndIsOssOrderByIdDesc(PhotoConstant.IS_PUBLIC, PhotoConstant.IS_OSS, PageRequest.of(page - 1, count));
+        Page<Photo> photoList = photoRepository.findByIsPublicAndIsOssOrderByIdDesc(PhotoConstant.IS_NOT_PUBLIC, PhotoConstant.IS_OSS, PageRequest.of(page - 1, count));
 
         List<PhotoSimpleResponse> photoSimpleResponseList = new ArrayList<>();
         // 循环处理每条记录
