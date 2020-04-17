@@ -1,7 +1,7 @@
 package com.dolphin.photo.Controller;
 
 import com.dolphin.photo.Entity.Photo;
-import com.dolphin.photo.Request.PhotoIdRequest;
+import com.dolphin.photo.Request.PhotoHashRequest;
 import com.dolphin.photo.Request.PhotoListRequest;
 import com.dolphin.photo.Response.PhotoListResponse;
 import com.dolphin.photo.Response.PhotoResponse;
@@ -23,30 +23,13 @@ public class PhotoController {
     @Autowired
     private PhotoService photoService;
 
-    @PostMapping("one")
-    public Response<PhotoResponse> getPhoto (@RequestBody @Validated PhotoIdRequest photoIdRequest) {
-        Long photoId = photoIdRequest.getPhotoId();
-
-        Photo photo  = photoService.getPhoto(photoId);
-
-        PhotoResponse photoResponse = new PhotoResponse();
-
-        BeanUtils.copyProperties(photo, photoResponse);
-
-        return Response.success(photoResponse);
+    @PostMapping("hash")
+    public Response<PhotoResponse> getPhoto (@RequestBody @Validated PhotoHashRequest photoHashRequest) {
+        return Response.success(photoService.getPhoto(photoHashRequest));
     }
 
     @PostMapping("list")
     public Response<PhotoListResponse> getPhotoList (@RequestBody @Validated PhotoListRequest photoListRequest) {
-        log.info("Page: {}", photoListRequest.getPage());
-        log.info("Count: {}", photoListRequest.getCount());
-
-        photoService.getPhotoList();
-
-        PhotoListResponse photoListResponse = new PhotoListResponse();
-        photoListResponse.setCount(0);
-        photoListResponse.setTotal(25);
-
-        return Response.success(photoListResponse);
+        return Response.success(photoService.getPhotoList(photoListRequest));
     }
 }

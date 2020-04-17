@@ -1,23 +1,26 @@
 package com.dolphin.photo.Service;
 
 import com.dolphin.photo.Entity.Photo;
-
-import java.util.List;
+import com.dolphin.photo.Request.PhotoHashRequest;
+import com.dolphin.photo.Request.PhotoListRequest;
+import com.dolphin.photo.Response.PhotoListResponse;
+import com.dolphin.photo.Response.PhotoResponse;
 
 /**
  * @author whb
  */
 public interface PhotoService {
     /**
-     * 根据照片 Id 查询单个图片信息
-     * @param  photoId 照片 Id
-     * @return Photo
+     * 根据照片 Hash 查询单个图片信息
+     * @param  photoHashRequest 照片 Hash 值
+     * @return PhotoResponse
      */
-    Photo getPhoto (Long photoId);
+    PhotoResponse getPhoto (PhotoHashRequest photoHashRequest);
 
     /**
      * 批量查询照片记录 - 分页
-     * @return List<Photo>
+     * @param photoListRequest 检索条件
+     * @return PhotoListResponse
      */
-    List<Photo> getPhotoList ();
+    PhotoListResponse getPhotoList (PhotoListRequest photoListRequest);
 }
