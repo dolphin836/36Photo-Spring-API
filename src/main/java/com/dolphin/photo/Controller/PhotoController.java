@@ -41,6 +41,8 @@ public class PhotoController {
         log.info("Page: {}", photoListRequest.getPage());
         log.info("Count: {}", photoListRequest.getCount());
 
+        photoService.getPhotoList();
+
         PhotoListResponse photoListResponse = new PhotoListResponse();
         photoListResponse.setCount(0);
         photoListResponse.setTotal(25);

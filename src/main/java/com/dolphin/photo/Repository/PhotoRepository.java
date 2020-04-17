@@ -1,23 +1,18 @@
 package com.dolphin.photo.Repository;
 
 import com.dolphin.photo.Entity.Photo;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.Repository;
+
+import java.util.List;
 
 /**
  * @author whb
  */
-public interface PhotoRepository extends CrudRepository<Photo, Long> {
+public interface PhotoRepository extends Repository<Photo, Long> {
     /**
-     * 查询单条记录
-     * @param photoId 照片 Id
-     * @return Photo
+     * 根据分类批量查询照片记录
+     * @param categoryCode 分类编码
+     * @return List<Photo>
      */
-    Photo getPhotoById (Long photoId);
-
-    /**
-     * 查询单条记录
-     * @param hash 名称
-     * @return Photo
-     */
-    Photo getPhotoByHash (String hash);
+    List<Photo> findByCategoryCodeOrderByIdDesc (String categoryCode);
 }

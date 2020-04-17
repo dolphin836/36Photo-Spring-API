@@ -2,6 +2,8 @@ package com.dolphin.photo.Service;
 
 import com.dolphin.photo.Entity.Photo;
 
+import java.util.List;
+
 /**
  * @author whb
  */
@@ -12,4 +14,10 @@ public interface PhotoService {
      * @return Photo
      */
     Photo getPhoto (Long photoId);
+
+    /**
+     * 批量查询照片记录 - 分页
+     * @return List<Photo>
+     */
+    List<Photo> getPhotoList ();
 }
