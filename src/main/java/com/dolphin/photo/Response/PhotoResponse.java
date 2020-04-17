@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author whb
@@ -13,8 +12,6 @@ import java.util.Date;
 @Data
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class PhotoResponse implements Serializable {
-    private Long id;
-
     private String hash;
 
     private String uuid;
@@ -35,13 +32,5 @@ public class PhotoResponse implements Serializable {
 
     private Integer like;
 
-    private Byte isPublic;
-
-    private Byte isOss;
-
     private String categoryCode;
-
-    private Date gmtCreate;
-
-    private Date gmtModified;
 }
